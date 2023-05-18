@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Quiz.css';
 
 
 
@@ -135,14 +136,16 @@ const Quiz = () => {
   const renderQuestion = () => {
     if (isSubmitted) {
       return (
+        
         <div>
-          <h2>Test Result</h2>
+          <h1>Test Result</h1>
           <p>Your score: {score} out of {questionsData.length * 2}</p>
           {isPassed ? (
             <p>Congratulations! You passed the test!</p>
           ) : (
             <button onClick={handleRestartTest}>Restart Test</button>
           )}
+        
         </div>
       );
     }
@@ -182,6 +185,7 @@ const Quiz = () => {
   };
 
   return (
+    <div className="quiz-container">
     <div>
       <h1>Test</h1>
       {!isStarted ? (
@@ -199,6 +203,8 @@ const Quiz = () => {
         </div>
       )}
     </div>
+    </div>
+
   );
 };
 export default Quiz;
